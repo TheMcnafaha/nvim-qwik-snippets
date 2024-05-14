@@ -1,4 +1,5 @@
 local ls = require("luasnip")
+local utils = require("utils.utils")
 -- some shorthands...
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -52,6 +53,31 @@ ls.add_snippets(tsx, {
 		]],
 		{ event = i(1), finish = i(0) }))
 })
+ls.add_snippets(tsx, {
+
+	s("q-component", fmta([[
+export const <name> = component$<<<type>>>((props) =>> {
+  <finish>
+  return (<<div>>Hello Qwik!<</div>>)
+});
+		]],
+		{ name = i(1), type = i(2), finish = i(0) }))
+})
+
+ls.add_snippets(tsx, {
+	s("q-useTask", fmta([[
+<here>
+]], {
+		here =
+		    c(1, {
+			    t("Ugh boring, a text node"),
+			    i(nil, "At least I can edit something now..."),
+			    t("Ugh boring, a text node 2"),
+		    })
+		,
+	}))
+})
 -- get file type
 -- :lua print(vim.inspect(require("luasnip").get_snippet_filetypes()))
+print("running ", require("utils.utils").get_file())
 return strg

@@ -1,5 +1,5 @@
 local ls = require("luasnip")
-local utils = require("utils.utils")
+-- local utils = reuire("utils.utils")
 -- some shorthands...
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -79,5 +79,5 @@ ls.add_snippets(tsx, {
 })
 -- get file type
 -- :lua print(vim.inspect(require("luasnip").get_snippet_filetypes()))
-print("running ", require("utils.utils").get_file())
+print("running ", require("utils").get_file_name())
 return strg
